@@ -1,0 +1,112 @@
+$small: 5px;
+$large: 20px;
+
+.df-tree-view-item {
+
+  &__list {
+    padding-left: $large;
+  }
+
+  &__content {
+    list-style: none;
+
+    &-wrapper {
+      white-space: nowrap;
+      margin-bottom: 4px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+
+    .item-content {
+
+      &__handler {
+        position: relative;
+        top: -1px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      &__icon {
+        color: rgba(0, 0, 0, .5);
+        user-select: none;
+        cursor: pointer;
+        flex-shrink: 0;
+
+        &--disable {
+          color: rgba(0, 0, 0, .7);
+          cursor: auto;
+        }
+
+        &-folder {
+          cursor: pointer;
+          transform: scale(1.2);
+        }
+      }
+
+      &__name {
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 0 $small;
+        border-radius: 3px;
+        cursor: pointer;
+        user-select: none;
+        transition: all .2s;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:hover {
+          background-color: #fff;
+        }
+
+        &--disable {
+          color: rgba(0, 0, 0, .7);
+          cursor: auto;
+
+          &:hover {
+            background-color: inherit;
+          }
+        }
+
+        &--select {
+          color: rgba(0, 0, 0, .7);
+          background-color: black;
+
+          &:hover {
+            background-color: blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__loader-container {
+    display: flex;
+    width: 18px;
+    height: 14px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__loader {
+    flex-shrink: 0;
+    border-radius: 100%;
+    border-top: 2px solid rgba(0, 0, 0, .7);
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    animation: df-tree-view-loader-spin 1s linear infinite;
+  }
+}
+
+@keyframes df-tree-view-loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
