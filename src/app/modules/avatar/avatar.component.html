@@ -1,0 +1,12 @@
+<div class="avatar overflow-hidden"
+     [style.background-image]="'url(' + options.image + ')'"
+     (mouseenter)="setVisibility(true)"
+     (mouseleave)="setVisibility(false)">
+  <ng-container *ngIf="editable && show">
+    <button class="edit"
+            type="button"
+            [@showHide]
+            (click)="onUpdate()">Update
+    </button>
+  </ng-container>
+</div>
